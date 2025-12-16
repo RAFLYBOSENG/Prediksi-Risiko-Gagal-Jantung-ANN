@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TA-11: Hasil Analisis Model ANN (Flask)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      h1,
+      h2 {
+        color: #333;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+        margin-top: 20px;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .chart-item {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        flex: 1 1 45%; /* Dua gambar per baris */
+        min-width: 400px;
+      }
+      .chart-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📊 Hasil Evaluasi Model Artificial Neural Network (ANN)</h1>
+      <h2>Tugas Akhir 11: Prediksi Risiko Gagal Jantung</h2>
+
+      <div class="gallery">
+        <div class="chart-item">
+          <h3>Kurva Training dan Validation Loss</h3>
+          <img
+            src="{{ url_for('static', filename='training_validation_loss.png') }}"
+            alt="Training Loss Curve"
+          />
+        </div>
+
+        <div class="chart-item">
+          <h3>Kurva Training dan Validation Accuracy</h3>
+          <img
+            src="{{ url_for('static', filename='training_validation_accuracy.png') }}"
+            alt="Training Accuracy Curve"
+          />
+        </div>
+
+        <div class="chart-item">
+          <h3>Heatmap Korelasi Fitur</h3>
+          <img
+            src="{{ url_for('static', filename='correlation_heatmap.png') }}"
+            alt="Feature Correlation Heatmap"
+          />
+        </div>
+
+                <div class="chart-item">
+          <h3>Normalize_Confusion_Matrix</h3>
+          <img
+            src="{{ url_for('static', filename='Normalize_confution_matrix.png') }}"
+            alt="Confusion Matrix"
+          />
+        </div>
+      </div>
+
+        <div class="chart-item">
+          <h3>Confusion Matrix Hasil Prediksi</h3>
+          <img
+            src="{{ url_for('static', filename='confusion_matrix.png') }}"
+            alt="Confusion Matrix"
+          />
+        </div>
+      </div>
+
+      <h2 style="margin-top: 40px">Analisis Singkat</h2>
+      <p>
+        Visualisasi ini menunjukkan kinerja model ANN setelah proses Training
+        dan langkah-langkah preprocessing. Kurva Loss dan Accuracy digunakan
+        untuk menganalisis Overfitting, sementara Confusion Matrix menunjukkan
+        akurasi dan bias model terhadap kelas mayoritas (Survival) akibat adanya
+        Imbalanced Data (Recall yang sangat rendah pada kelas Kematian).
+      </p>
+    </div>
+  </body>
+</html>
